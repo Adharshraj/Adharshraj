@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Creative CV</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet">
+    <title>Adharsh Raj M R</title>
+    <link rel="icon" type="image/png" href="favicon_AMR_2.png">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/aos.css?ver=1.1.0" rel="stylesheet">
     <link href="css/bootstrap.min.css?ver=1.1.0" rel="stylesheet">
@@ -15,376 +16,496 @@
         [data-aos] {
             opacity: 1 !important;
             transform: translate(0) scale(1) !important;
-        }qqa
+        }
       </style>
     </noscript>
+
+    <style>
+      /* ── Design Tokens ── */
+      :root {
+        --ink:      #0d0d0d;
+        --paper:    #f7f5f0;
+        --accent:   #1a6b47;
+        --accent2:  #c8a96e;
+        --muted:    #6b6b6b;
+        --card-bg:  #ffffff;
+        --border:   #e2ddd6;
+        --ff-head:  'Playfair Display', Georgia, serif;
+        --ff-body:  'DM Sans', sans-serif;
+        --radius:   12px;
+        --shadow:   0 4px 32px rgba(0,0,0,.08);
+        --shadow-lg:0 12px 48px rgba(0,0,0,.14);
+      }
+
+      /* ── Reset / Base ── */
+      *, *::before, *::after { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: var(--ff-body);
+        background: var(--paper);
+        color: var(--ink);
+        font-size: 15px;
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      /* ── Navbar ── */
+      .navbar {
+        background: rgba(247,245,240,.92) !important;
+        backdrop-filter: saturate(180%) blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--border);
+        padding: 0.9rem 1rem;
+        transition: background .3s;
+      }
+      .navbar .navbar-brand { display: none; }
+      .navbar-nav .nav-link {
+        font-family: var(--ff-body);
+        font-size: 0.82rem;
+        font-weight: 500;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        color: var(--ink) !important;
+        padding: .4rem 1rem !important;
+        position: relative;
+      }
+      .navbar-nav .nav-link::after {
+        content: '';
+        position: absolute;
+        bottom: 0; left: 50%; right: 50%;
+        height: 2px;
+        background: var(--accent);
+        transition: left .25s, right .25s;
+      }
+      .navbar-nav .nav-link:hover::after { left: 1rem; right: 1rem; }
+      .navbar-toggler { border: none; background: none; }
+      .navbar-toggler-bar {
+        display: block;
+        width: 24px; height: 2px;
+        background: var(--ink);
+        margin: 5px 0;
+        transition: all .3s;
+      }
+
+      /* ── Hero ── */
+      .page-header {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+      .page-header-image {
+        position: absolute;
+        inset: 0;
+        background-size: cover;
+        background-position: center;
+        filter: brightness(.45);
+      }
+      .page-header::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(160deg, rgba(26,107,71,.55) 0%, rgba(13,13,13,.7) 100%);
+        z-index: 1;
+      }
+      .content-center {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        padding: 2rem 1rem;
+      }
+      .cc-profile-image {
+        width: 140px; height: 140px;
+        border-radius: 50%;
+        margin: 0 auto 1.5rem;
+        border: 4px solid var(--accent2);
+        overflow: hidden;
+        box-shadow: 0 0 0 8px rgba(200,169,110,.2);
+      }
+      .cc-profile-image img { width: 100%; height: 100%; object-fit: cover; }
+      .hero-name {
+        font-family: var(--ff-head);
+        font-size: clamp(2rem, 5vw, 3.5rem);
+        font-weight: 700;
+        color: #fff;
+        margin: 0 0 .5rem;
+        text-shadow: 0 2px 20px rgba(0,0,0,.4);
+      }
+      .hero-sub {
+        font-size: .95rem;
+        letter-spacing: .08em;
+        color: rgba(255,255,255,.82);
+        margin-bottom: 2rem;
+      }
+      .hero-badge {
+        display: inline-block;
+        background: rgba(200,169,110,.18);
+        border: 1px solid var(--accent2);
+        color: var(--accent2);
+        font-size: .72rem;
+        font-weight: 600;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        padding: .3rem .9rem;
+        border-radius: 100px;
+        margin-bottom: 1.8rem;
+      }
+      .btn-hire {
+        display: inline-block;
+        background: var(--accent);
+        color: #fff !important;
+        font-weight: 600;
+        font-size: .85rem;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        padding: .85rem 2.2rem;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background .25s, transform .2s, box-shadow .25s;
+        box-shadow: 0 4px 20px rgba(26,107,71,.35);
+      }
+      .btn-hire:hover {
+        background: #155c3c;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(26,107,71,.45);
+        color: #fff !important;
+        text-decoration: none;
+      }
+
+      /* ── Sections ── */
+      .section {
+        padding: 80px 0;
+      }
+      .section-title {
+        font-family: var(--ff-head);
+        font-size: 1.85rem;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: .3rem;
+      }
+      .section-title-wrap {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      .section-title-wrap .underline {
+        display: inline-block;
+        width: 52px; height: 3px;
+        background: var(--accent);
+        border-radius: 2px;
+        margin-top: .4rem;
+      }
+
+      /* ── Cards ── */
+      .card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        margin-bottom: 1.5rem;
+        overflow: hidden;
+        transition: transform .25s, box-shadow .25s;
+      }
+      .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+      .card-body { padding: 2rem; }
+
+      /* ── About ── */
+      #about .section-inner { display: flex; gap: 2rem; flex-wrap: wrap; }
+      #about .about-text { flex: 1; min-width: 260px; }
+      #about .about-info { flex: 1; min-width: 260px; }
+      .about-text p { color: var(--muted); font-size: .95rem; }
+      .info-row {
+        display: flex;
+        gap: 1rem;
+        padding: .6rem 0;
+        border-bottom: 1px solid var(--border);
+        font-size: .88rem;
+      }
+      .info-row:last-child { border-bottom: none; }
+      .info-label {
+        font-weight: 600;
+        font-size: .72rem;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: var(--accent);
+        min-width: 90px;
+        padding-top: .1rem;
+      }
+      .info-value { color: var(--ink); }
+      .info-value a { color: var(--accent); text-decoration: none; }
+      .info-value a:hover { text-decoration: underline; }
+
+      /* ── Skills ── */
+      #skill { background: #f0ede6; }
+      .skill-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.2rem; }
+      .skill-item { background: var(--card-bg); border-radius: var(--radius); padding: 1.2rem 1.5rem; border: 1px solid var(--border); }
+      .skill-name {
+        font-size: .8rem;
+        font-weight: 600;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        color: var(--ink);
+        margin-bottom: .7rem;
+        display: flex;
+        justify-content: space-between;
+      }
+      .skill-pct { color: var(--accent); font-weight: 700; }
+      .skill-bar { background: #e8e4dc; border-radius: 100px; height: 6px; overflow: hidden; }
+      .skill-fill {
+        height: 100%;
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        border-radius: 100px;
+        width: 0;
+        transition: width 1.2s cubic-bezier(.4,0,.2,1);
+      }
+
+      /* ── Projects ── */
+      .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+      .project-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        overflow: hidden;
+        transition: transform .25s, box-shadow .25s;
+        text-decoration: none;
+        color: var(--ink);
+        display: block;
+      }
+      .project-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); text-decoration: none; color: var(--ink); }
+      .project-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
+      .project-img-placeholder {
+        width: 100%; aspect-ratio: 16/9;
+        background: linear-gradient(135deg, #1a6b47 0%, #c8a96e 100%);
+        display: flex; align-items: center; justify-content: center;
+      }
+      .project-body { padding: 1.4rem; }
+      .project-title {
+        font-family: var(--ff-head);
+        font-size: 1.15rem;
+        font-weight: 700;
+        margin-bottom: .5rem;
+      }
+      .project-desc { font-size: .85rem; color: var(--muted); line-height: 1.6; }
+      .project-link-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: .35rem;
+        margin-top: .9rem;
+        font-size: .75rem;
+        font-weight: 600;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+      .project-link-tag i { font-size: .65rem; }
+
+      /* ── Timeline (Experience / Education) ── */
+      .timeline { position: relative; padding-left: 36px; }
+      .timeline::before {
+        content: '';
+        position: absolute;
+        left: 10px; top: 0; bottom: 0;
+        width: 2px;
+        background: linear-gradient(180deg, var(--accent), var(--accent2));
+      }
+      .timeline-item { position: relative; margin-bottom: 2.5rem; }
+      .timeline-dot {
+        position: absolute;
+        left: -30px; top: 4px;
+        width: 14px; height: 14px;
+        border-radius: 50%;
+        background: var(--accent);
+        border: 3px solid var(--paper);
+        box-shadow: 0 0 0 2px var(--accent);
+      }
+      .timeline-period {
+        font-size: .72rem;
+        font-weight: 600;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: var(--accent2);
+        margin-bottom: .25rem;
+      }
+      .timeline-org {
+        font-size: .78rem;
+        font-weight: 600;
+        color: var(--muted);
+        margin-bottom: .2rem;
+      }
+      .timeline-role {
+        font-family: var(--ff-head);
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: .5rem;
+      }
+      .timeline-desc { font-size: .88rem; color: var(--muted); }
+
+      /* ── Resume ── */
+      #resume { background: #f0ede6; }
+      .resume-card {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 2rem 2.5rem;
+        box-shadow: var(--shadow);
+      }
+      .resume-text { flex: 1; min-width: 220px; }
+      .resume-text h5 { font-family: var(--ff-head); font-size: 1.3rem; margin-bottom: .4rem; }
+      .resume-text p { color: var(--muted); font-size: .88rem; margin: 0; }
+      .btn-download {
+        display: inline-flex;
+        align-items: center;
+        gap: .6rem;
+        background: var(--ink);
+        color: #fff !important;
+        font-weight: 600;
+        font-size: .82rem;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        padding: .85rem 1.8rem;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: background .25s, transform .2s;
+        white-space: nowrap;
+      }
+      .btn-download:hover { background: var(--accent); transform: translateY(-2px); color: #fff !important; text-decoration: none; }
+
+      /* ── Contact ── */
+      #contact { background: var(--ink); color: #fff; }
+      #contact .section-title { color: #fff; }
+      #contact .section-title-wrap .underline { background: var(--accent2); }
+      .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; }
+      .contact-item {
+        display: flex;
+        gap: 1rem;
+        align-items: flex-start;
+      }
+      .contact-icon {
+        width: 42px; height: 42px;
+        border-radius: 8px;
+        background: rgba(255,255,255,.08);
+        border: 1px solid rgba(255,255,255,.12);
+        display: flex; align-items: center; justify-content: center;
+        flex-shrink: 0;
+        color: var(--accent2);
+        font-size: 1rem;
+      }
+      .contact-label {
+        font-size: .7rem;
+        font-weight: 600;
+        letter-spacing: .1em;
+        text-transform: uppercase;
+        color: rgba(255,255,255,.45);
+        margin-bottom: .2rem;
+      }
+      .contact-value { font-size: .9rem; color: rgba(255,255,255,.85); }
+      .contact-value a { color: var(--accent2); text-decoration: none; }
+      .contact-value a:hover { text-decoration: underline; }
+
+      /* ── Footer ── */
+      .footer-strip {
+        background: #060606;
+        text-align: center;
+        padding: 1.2rem;
+        font-size: .75rem;
+        color: rgba(255,255,255,.25);
+        letter-spacing: .06em;
+      }
+
+      /* ── Responsive ── */
+      @media (max-width: 768px) {
+        .section { padding: 60px 0; }
+        .resume-card { flex-direction: column; text-align: center; }
+      }
+    </style>
   </head>
   <body id="top">
+
+    <!-- ── Navbar ── -->
     <header>
-      <div class="profile-page sidebar-collapse">
-        <nav class="navbar navbar-expand-lg fixed-top navbar-transparent bg-primary" color-on-scroll="400">
-          <div class="container">
-    
-              <button class="navbar-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-bar bar1"></span><span class="navbar-toggler-bar bar2"></span><span class="navbar-toggler-bar bar3"></span></button>
-            </div>
-            <div class="collapse navbar-collapse justify-content-end" id="navigation">
-              <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">About</a></li>
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#skill">Skills</a></li>
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#portfolio">Projects</a></li>
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#experience">Experience</a></li>
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">Contact</a></li>
-              </ul>
-            </div>
+      <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-bar bar1"></span>
+            <span class="navbar-toggler-bar bar2"></span>
+            <span class="navbar-toggler-bar bar3"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navigation">
+            <ul class="navbar-nav">
+              <li class="nav-item"><a class="nav-link smooth-scroll" href="#about">About</a></li>
+              <li class="nav-item"><a class="nav-link smooth-scroll" href="#skill">Skills</a></li>
+              <li class="nav-item"><a class="nav-link smooth-scroll" href="#portfolio">Projects</a></li>
+              <li class="nav-item"><a class="nav-link smooth-scroll" href="#experience">Experience</a></li>
+              <li class="nav-item"><a class="nav-link smooth-scroll" href="#contact">Contact</a></li>
+            </ul>
           </div>
-        </nav>
-      </div>
+        </div>
+      </nav>
     </header>
-    <div class="page-content">
-      <div>
-<div class="profile-page">
-  <div class="wrapper">
+
+    <!-- ── Hero ── -->
     <div class="page-header page-header-small" filter-color="green">
       <div class="page-header-image" data-parallax="true" style="background-image: url('images/cc-bg-1.jpg')"></div>
       <div class="container">
         <div class="content-center">
-          <div class="cc-profile-image"><a href="#"><img src="Adharsh Raj M R.jpg" alt="Image"/></a></div>
-          <div class="h2 title">Adharsh Raj M R</div>
-          <p class="category text-white">Portfolio of Adharsh Raj M R, Certified Full Stack Java Developer</p><a class="btn btn-primary smooth-scroll mr-2" href="#contact" data-aos="zoom-in" data-aos-anchor="data-aos-anchor">Hire Me</a>
-        </div>
-      </div>
-   
-  </div>
-</div>
-<div class="section" id="about">
-  <div class="container">
-    <div class="card" data-aos="fade-up" data-aos-offset="10">
-      <div class="row">
-        <div class="col-lg-6 col-md-12">
-          <div class="card-body">
-            <div class="h4 mt-0 title">About</div>
-            <p>Portfolio of Adharsh Raj M R, Certified Full Stack Java Developer</p>
-         
+          <div class="cc-profile-image">
+            <a href="#"><img src="Adharsh Raj M R.jpg" alt="Adharsh Raj M R"/></a>
           </div>
-        </div>
-        <div class="col-lg-6 col-md-12">
-          <div class="card-body">
-            <div class="h4 mt-0 title">Basic Information</div>
-            <div class="row">
-              <div class="col-sm-4"><strong class="text-uppercase">Age:</strong></div>
-              <div class="col-sm-8">25</div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-sm-4"><strong class="text-uppercase">Email:</strong></div>
-              <div class="col-sm-8">adharshraj35@gmail.com</div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-sm-4"><strong class="text-uppercase">Phone:</strong></div>
-              <div class="col-sm-8">+919847423247</div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-sm-4"><strong class="text-uppercase">Whatsapp:</strong></div>
-              <a href="https://wa.me/919847423247"><img src="Whatsapp.jpg" alt="Image"/></div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-sm-4"><strong class="text-uppercase">Address:</strong></div>
-              <div class="col-sm-8">Mullassery House, Elthuruth, Kdoungallur P O</div>
-            </div>
-            <div class="row mt-3">
-              <div class="col-sm-4"><strong class="text-uppercase">Language:</strong></div>
-              <div class="col-sm-8">English, Malayalam , Hindi</div>
-            </div>
-          </div>
+          <div class="hero-badge">Full Stack Java Developer</div>
+          <div class="hero-name">Adharsh Raj M R</div>
+          <p class="hero-sub">Portfolio of Adharsh Raj M R, Certified Full Stack Java Developer</p>
+          <a class="btn-hire smooth-scroll" href="#contact" data-aos="zoom-in">Hire Me</a>
         </div>
       </div>
     </div>
-  </div>
-</div>
-<div class="section" id="skill">
-  <div class="container">
-    <div class="h4 text-center mb-4 title">Professional Skills</div>
-    <div class="card" data-aos="fade-up" data-aos-anchor-placement="top-bottom">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">HTML</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 65%;"></div><span class="progress-value">65%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">CSS</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">JavaScript</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Java</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div><span class="progress-value">90%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Spring Boot</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 85%;"></div><span class="progress-value">85%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">SQL</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div><span class="progress-value">90%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Python</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 70%;"></div><span class="progress-value">70%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">React J S</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Git</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Manual Testing</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 90%;"></div><span class="progress-value">90%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">JUnit</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6">
-            <div class="progress-container progress-primary"><span class="progress-badge">Mongo DB</span>
-              <div class="progress">
-                <div class="progress-bar progress-bar-primary" data-aos="progress-full" data-aos-offset="10" data-aos-duration="2000" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;"></div><span class="progress-value">60%</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="section" id="portfolio">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6 ml-auto mr-auto">
-        <div class="h4 text-center mb-4 title">Projects</div>
-        <div class="nav-align-center">
-          
-        </div>
-      </div>
-    </div>
-    <div class="tab-content gallery mt-5">
-      <div class="tab-pane active" id="web-development">
-        <div class="ml-auto mr-auto">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="">
-                  <figure class="cc-effect"><img src="images/project-1.jpg" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Recent Project</div>
-                      <p>Web Development</p>
-                    </figcaption>
-                  </figure></a></div>
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#web-development">
-                  <figure class="cc-effect"><img src="images/project-2.jpg" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Startup Project</div>
-                      <p>Web Development</p>
-                    </figcaption>
-                  </figure></a></div>
-            </div>
-            <div class="col-md-6">
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#web-development">
-                  <figure class="cc-effect"><img src="images/project-3.jpg" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Food Order Project</div>
-                      <p>Web Development</p>
-                    </figcaption>
-                  </figure></a></div>
-              <div class="cc-porfolio-image img-raised" data-aos="fade-up" data-aos-anchor-placement="top-bottom"><a href="#web-development">
-                  <figure class="cc-effect"><img src="images/project-4.jpg" alt="Image"/>
-                    <figcaption>
-                      <div class="h4">Web Advertising Project</div>
-                      <p>Web Development</p>
-                    </figcaption>
-                  </figure></a></div>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-<div class="section" id="experience">
-  <div class="container cc-experience">
-    <div class="h4 text-center mb-4 title">Experiance</div>
-    <div class="card">
-      <div class="row">
-        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body cc-experience-header">
-            <p>September 2024 - Present</p>
-            <div class="h5">Conduent Business Services India LLP</div>
-          </div>
-        </div>
-        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body">
-            <div class="h5">Technical Business Analysis Engineer I</div>
-            <p>As a Technical Business Analysis Engineer I, I specialize in application testing, including unit testing, 
-regression testing, and XML testing, to ensure robust and reliable systems. My role involves analyzing 
-business requirement documents to identify key objectives and translating them into comprehensive test 
-plans. Additionally, I leverage my expertise in PL/SQL to write complex queries and perform backend 
-updates</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body cc-experience-header">
-            <p>July 2023 - February 2024</p>
-            <div class="h5">KodNest</div>
-          </div>
-        </div>
-        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body">
-            <div class="h5">Full-Stack Developer intern</div>
-            <p>Intern at KodNest, where I acquired practical skills in Java, MySQL, Frontend Technology, Manual Testing, contributing to real world projects and learning directly from industry professionals</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body cc-experience-header">
-            <p>April 2024 - July 2024</p>
-            <div class="h5">Macrosive Computer Solutions</div>
-          </div>
-        </div>
-        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body">
-            <div class="h5">Internship in Microsoft Dynamics 365 Development</div>
-            <p>Intern at Macrosive, where I worked with software development team and Gained hands-on experience with Microsoft Dynamics and related technologies including Power Apps, Power Automate, and Power Pages etc. Tested various products to ensure quality and performance. Developed a Work-from-Home Request page using Power Apps as part of an internal project, enhancing the efficiency of remote work requests  </p>
-          </div>
-        </div>
-      </div>
-      
-    </div>
-    <div class="card">
-      <div class="row">
-        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body cc-experience-header">
-            <p>April 2013 - February 2014</p>
-            <div class="h5">WEBM</div>
-          </div>
-        </div>
-        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body">
-            <div class="h5">Intern</div>
-            <p>Spearheaded the design and development of modern and responsive user interfaces for web applications, ensuring optimal user experience across devices and browsers.
-Collaborated with cross-functional teams, including UX designers and back-end developers, to translate design concepts into functional and visually appealing interfaces.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="section">
-  <div class="container cc-education">
-    <div class="h4 text-center mb-4 title">Education</div>
-    <div class="card">
-      <div class="row">
-        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body cc-education-header">
-            <p>2019 - 2023</p>
-            <div class="h5">Bachelor's Degree</div>
-          </div>
-        </div>
-        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body">
-            <div class="h5">Bachelor of Technology (B.Tech) in Electronics and Communication Engineering</div>
-            <p class="category">APJ Adbul kalam Technological University</p>
-            <p>Spearheaded the design and development of modern and responsive user interfaces for web applications, ensuring optimal user experience across devices and browsers.
-Collaborated with cross-functional teams, including UX designers and back-end developers, to translate design concepts into functional and visually appealing interfaces.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="row">
-        <div class="col-md-3 bg-primary" data-aos="fade-right" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body cc-education-header">
-            <p>2016 - 2018</p>
-            <div class="h5">Plus Two</div>
-          </div>
-        </div>
-        <div class="col-md-9" data-aos="fade-left" data-aos-offset="50" data-aos-duration="500">
-          <div class="card-body">
-            <div class="h5">Science and Mathematics</div>
-            <p class="category">Kerala State board</p>
-            <p>Spearheaded the design and development of modern and responsive user interfaces for web applications, ensuring optimal user experience across devices and browsers.
-Collaborated with cross-functional teams, including UX designers and back-end developers, to translate design concepts into functional and visually appealing interfaces.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="section" id="contact">
-  <div class="cc-contact-information" style="background-image: url('images/staticmap.png')">
-    <div class="container">
-      <div class="cc-contact">
-        <div class="row">
-          <div class="col-md-9">
-            <div class="card mb-0" data-aos="zoom-in">
-              <div class="h4 text-center title">Contact Me</div>
-              <div class="row">
-                <div class="col-md-6">
-                  <div class="card-body">
-                      
-                      <div class="row mb-3">
-                        
-                <div>
-                  <div class="card-body">
-                    <p class="mb-0"><strong>Address:</strong></p>
-                    <p class="pb-2">Mullassery House, Elthuruth, Kodungallur P O, Thrissur , Pin : 680664</p>
-                    <p class="mb-0"><strong>Phone:</strong></p>
-                    <p class="pb-2">+919847423247</p>
-                    <p class="mb-0"><strong>Email:</strong></p>
-                    <p>adharshraj35@gmail.com</p>
-                  </div>
+    <!-- ── About ── -->
+    <div class="section" id="about">
+      <div class="container">
+        <div class="section-title-wrap" data-aos="fade-up">
+          <div class="section-title">About Me</div>
+          <div class="underline"></div>
+        </div>
+        <div class="card" data-aos="fade-up" data-aos-offset="10">
+          <div class="row">
+            <div class="col-lg-6 col-md-12">
+              <div class="card-body">
+                <div class="h4 mt-0 title" style="font-family:var(--ff-head)">About</div>
+                <p style="color:var(--muted)">B.Tech graduate in Electronics and Communication Engineering with professional experience as a Technical Business Analysis Engineer, specializing in testing, SQL, and data analysis. Developed a strong interest in backend development while working closely with software systems, leading to hands-on experience in Java, Spring Boot, and REST APIs through real-world projects. Actively upskilling to transition into a software engineering role with a focus on building scalable and efficient backend systems.</p>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-12">
+              <div class="card-body">
+                <div class="h4 mt-0 title" style="font-family:var(--ff-head)">Basic Information</div>
+                <div class="info-row">
+                  <span class="info-label">Age</span>
+                  <span class="info-value" id="age"></span>
+                </div>
+                <div class="info-row">
+                  <span class="info-label">Email</span>
+                  <span class="info-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5f3e3b373e2d2c372d3e356c6a1f38323e3633713c3032">[email&#160;protected]</a></span>
+                </div>
+                <div class="info-row">
+                  <span class="info-label">Phone</span>
+                  <span class="info-value">+919847423247</span>
+                </div>
+                <div class="info-row">
+                  <span class="info-label">WhatsApp</span>
+                  <span class="info-value"><a href="https://wa.me/919847423247">+919847423247</a></span>
+                </div>
+                <div class="info-row">
+                  <span class="info-label">Address</span>
+                  <span class="info-value">Mullassery House, Elthuruth, Kdoungallur P O</span>
+                </div>
+                <div class="info-row">
+                  <span class="info-label">Language</span>
+                  <span class="info-value">English, Malayalam, Hindi</span>
                 </div>
               </div>
             </div>
@@ -392,15 +513,266 @@ Collaborated with cross-functional teams, including UX designers and back-end de
         </div>
       </div>
     </div>
-  </div>
-</div></div>
+
+    <!-- ── Skills ── -->
+    <div class="section" id="skill">
+      <div class="container">
+        <div class="section-title-wrap" data-aos="fade-up">
+          <div class="section-title">Professional Skills</div>
+          <div class="underline"></div>
+        </div>
+        <div class="skill-grid" data-aos="fade-up">
+          <!-- Each skill item -->
+          <div class="skill-item">
+            <div class="skill-name">HTML <span class="skill-pct">65%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="65"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">CSS <span class="skill-pct">60%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="60"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">JavaScript <span class="skill-pct">60%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="60"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Java <span class="skill-pct">90%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="90"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Spring Boot <span class="skill-pct">85%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="85"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">SQL <span class="skill-pct">90%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="90"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Python <span class="skill-pct">70%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="70"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">React JS <span class="skill-pct">60%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="60"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Git <span class="skill-pct">60%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="60"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">Manual Testing <span class="skill-pct">90%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="90"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">JUnit <span class="skill-pct">60%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="60"></div></div>
+          </div>
+          <div class="skill-item">
+            <div class="skill-name">MongoDB <span class="skill-pct">60%</span></div>
+            <div class="skill-bar"><div class="skill-fill" data-pct="60"></div></div>
+          </div>
+        </div>
+      </div>
     </div>
-    
+
+    <!-- ── Projects ── -->
+    <div class="section" id="portfolio">
+      <div class="container">
+        <div class="section-title-wrap" data-aos="fade-up">
+          <div class="section-title">Projects</div>
+          <div class="underline"></div>
+        </div>
+        <div class="projects-grid">
+          <a class="project-card" href="https://github.com/Adharshraj/XMeme" data-aos="fade-up">
+            <img class="project-img" src="images/project-1.jpg" alt="XMeme"/>
+            <div class="project-body">
+              <div class="project-title">XMeme</div>
+              <p class="project-desc">Developed XMeme, a backend web application that enables users to post and view memes by implementing REST APIs using Spring Boot, integrating MongoDB for efficient data storage and retrieval, and ensuring reliable application performance through testing.</p>
+              <span class="project-link-tag"><i class="fa fa-github"></i> View on GitHub</span>
+            </div>
+          </a>
+          <a class="project-card" href="https://github.com/Adharshraj/QEats" data-aos="fade-up" data-aos-delay="80">
+            <img class="project-img" src="images/project-2.jpg" alt="QEats"/>
+            <div class="project-body">
+              <div class="project-title">QEats</div>
+              <p class="project-desc">Built backend components of QEats, a Spring Boot-based food ordering application, by implementing multiple REST API endpoints to retrieve restaurant information and process user orders, with a focus on scalable and efficient data handling.</p>
+              <span class="project-link-tag"><i class="fa fa-github"></i> View on GitHub</span>
+            </div>
+          </a>
+          <a class="project-card" href="https://github.com/Adharshraj/QMoney" data-aos="fade-up" data-aos-delay="160">
+            <img class="project-img" src="images/project-3.jpg" alt="QMoney"/>
+            <div class="project-body">
+              <div class="project-title">QMoney</div>
+              <p class="project-desc">Developed QMoney, a stock portfolio analyzer, by implementing core portfolio management logic as a reusable library, refactoring the codebase to support multiple stock quote services, and improving application performance and stability.</p>
+              <span class="project-link-tag"><i class="fa fa-github"></i> View on GitHub</span>
+            </div>
+          </a>
+          <a class="project-card" href="https://github.com/Adharshraj/Xlido" data-aos="fade-up" data-aos-delay="240">
+            <img class="project-img" src="images/project-4.jpg" alt="Xlido"/>
+            <div class="project-body">
+              <div class="project-title">Xlido</div>
+              <p class="project-desc">Developed Xlido, an audience engagement application that enables real-time interaction during events and meetings by implementing core features such as Q&amp;A functionality to facilitate seamless communication and enhance user participation.</p>
+              <span class="project-link-tag"><i class="fa fa-github"></i> View on GitHub</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Experience ── -->
+    <div class="section" id="experience" style="background:#f0ede6;">
+      <div class="container">
+        <div class="section-title-wrap" data-aos="fade-up">
+          <div class="section-title">Experience</div>
+          <div class="underline"></div>
+        </div>
+        <div class="timeline" data-aos="fade-up">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-period">September 2024 – Present</div>
+            <div class="timeline-org">Conduent Business Services India LLP</div>
+            <div class="timeline-role">Technical Business Analysis Engineer I</div>
+            <p class="timeline-desc">As a Technical Business Analysis Engineer I, I specialize in application testing, including unit testing, regression testing, and XML testing, to ensure robust and reliable systems. My role involves analyzing business requirement documents to identify key objectives and translating them into comprehensive test plans. Additionally, I leverage my expertise in PL/SQL to write complex queries and perform backend updates.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-period">April 2024 – July 2024</div>
+            <div class="timeline-org">Macrosive Computer Solutions</div>
+            <div class="timeline-role">Internship in Microsoft Dynamics 365 Development</div>
+            <p class="timeline-desc">Intern at Macrosive, where I worked with the software development team and gained hands-on experience with Microsoft Dynamics and related technologies including Power Apps, Power Automate, and Power Pages. Tested various products to ensure quality and performance. Developed a Work-from-Home Request page using Power Apps as part of an internal project, enhancing the efficiency of remote work requests.</p>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-period">July 2023 – February 2024</div>
+            <div class="timeline-org">KodNest</div>
+            <div class="timeline-role">Full-Stack Developer Intern</div>
+            <p class="timeline-desc">Intern at KodNest, where I acquired practical skills in Java, MySQL, Frontend Technology, Manual Testing, contributing to real-world projects and learning directly from industry professionals.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Education ── -->
+    <div class="section">
+      <div class="container cc-education">
+        <div class="section-title-wrap" data-aos="fade-up">
+          <div class="section-title">Education</div>
+          <div class="underline"></div>
+        </div>
+        <div class="timeline" data-aos="fade-up">
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-period">2019 – 2023</div>
+            <div class="timeline-org">APJ Abdul Kalam Technological University</div>
+            <div class="timeline-role">Bachelor of Technology (B.Tech) in Electronics and Communication Engineering</div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-period">2016 – 2018</div>
+            <div class="timeline-org">Kerala State Board</div>
+            <div class="timeline-role">Plus Two — Science and Mathematics</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Resume ── -->
+    <div class="section" id="resume">
+      <div class="container">
+        <div class="section-title-wrap" data-aos="fade-up">
+          <div class="section-title">My Resume</div>
+          <div class="underline"></div>
+        </div>
+        <div class="resume-card" data-aos="fade-up">
+          <div class="resume-text">
+            <h5>Adharsh Raj M R — Resume</h5>
+            <p>Download my comprehensive resume to view my complete professional background, technical skills, project experience, and educational qualifications.</p>
+          </div>
+          <a href="Adharsh Raj M R Resume.pdf" download="Adharsh_Raj_MR_Resume.pdf" class="btn-download">
+            <i class="fa fa-download"></i> Download PDF
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Contact ── -->
+    <div class="section" id="contact">
+      <div class="container">
+        <div class="section-title-wrap" data-aos="fade-up">
+          <div class="section-title">Contact Me</div>
+          <div class="underline"></div>
+        </div>
+        <div class="contact-grid" data-aos="fade-up">
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa fa-map-marker"></i></div>
+            <div>
+              <div class="contact-label">Address</div>
+              <div class="contact-value">Mullassery House, Elthuruth, Kodungallur P O, Thrissur, Pin: 680664</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa fa-phone"></i></div>
+            <div>
+              <div class="contact-label">Phone</div>
+              <div class="contact-value">+919847423247</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa fa-envelope"></i></div>
+            <div>
+              <div class="contact-label">Email</div>
+              <div class="contact-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="99f8fdf1f8ebeaf1ebf8f3aaacd9fef4f8f0f5b7faf6f4">[email&#160;protected]</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon"><i class="fa fa-whatsapp"></i></div>
+            <div>
+              <div class="contact-label">WhatsApp</div>
+              <div class="contact-value"><a href="https://wa.me/919847423247">+919847423247</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-strip">© 2025 Adharsh Raj M R · All rights reserved</div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="js/core/jquery.3.2.1.min.js?ver=1.1.0"></script>
     <script src="js/core/popper.min.js?ver=1.1.0"></script>
     <script src="js/core/bootstrap.min.js?ver=1.1.0"></script>
     <script src="js/now-ui-kit.js?ver=1.1.0"></script>
     <script src="js/aos.js?ver=1.1.0"></script>
     <script src="scripts/main.js?ver=1.1.0"></script>
+
+    <script>
+      // ── Age ──
+      function calculateAge() {
+        const birthDate = new Date(2000, 6, 23);
+        const today = new Date();
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) age--;
+        return age;
+      }
+      const ageEl = document.getElementById('age');
+      if (ageEl) ageEl.textContent = calculateAge();
+
+      // ── AOS ──
+      AOS.init({ duration: 700, once: true, offset: 40 });
+
+      // ── Skill bars animate on scroll ──
+      function animateBars() {
+        document.querySelectorAll('.skill-fill').forEach(bar => {
+          const rect = bar.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 60 && !bar.classList.contains('animated')) {
+            bar.style.width = bar.dataset.pct + '%';
+            bar.classList.add('animated');
+          }
+        });
+      }
+      window.addEventListener('scroll', animateBars);
+      animateBars();
+    </script>
   </body>
 </html>
