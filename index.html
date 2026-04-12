@@ -5,7 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Adharsh Raj M R</title>
-    <link rel="icon" type="image/png" href="favicon_AMR_2.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_AMR_2.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_AMR_2.png">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" rel="stylesheet">
     <link href="css/aos.css?ver=1.1.0" rel="stylesheet">
@@ -175,9 +176,7 @@
       }
 
       /* ── Sections ── */
-      .section {
-        padding: 80px 0;
-      }
+      .section { padding: 80px 0; }
       .section-title {
         font-family: var(--ff-head);
         font-size: 1.85rem;
@@ -185,10 +184,7 @@
         color: var(--ink);
         margin-bottom: .3rem;
       }
-      .section-title-wrap {
-        text-align: center;
-        margin-bottom: 3rem;
-      }
+      .section-title-wrap { text-align: center; margin-bottom: 3rem; }
       .section-title-wrap .underline {
         display: inline-block;
         width: 52px; height: 3px;
@@ -232,7 +228,7 @@
         min-width: 90px;
         padding-top: .1rem;
       }
-      .info-value { color: var(--ink); }
+      .info-value { color: var(--ink); word-break: break-word; overflow-wrap: break-word; }
       .info-value a { color: var(--accent); text-decoration: none; }
       .info-value a:hover { text-decoration: underline; }
 
@@ -274,11 +270,6 @@
       }
       .project-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); text-decoration: none; color: var(--ink); }
       .project-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
-      .project-img-placeholder {
-        width: 100%; aspect-ratio: 16/9;
-        background: linear-gradient(135deg, #1a6b47 0%, #c8a96e 100%);
-        display: flex; align-items: center; justify-content: center;
-      }
       .project-body { padding: 1.4rem; }
       .project-title {
         font-family: var(--ff-head);
@@ -300,7 +291,7 @@
       }
       .project-link-tag i { font-size: .65rem; }
 
-      /* ── Timeline (Experience / Education) ── */
+      /* ── Timeline ── */
       .timeline { position: relative; padding-left: 36px; }
       .timeline::before {
         content: '';
@@ -380,11 +371,12 @@
       #contact { background: var(--ink); color: #fff; }
       #contact .section-title { color: #fff; }
       #contact .section-title-wrap .underline { background: var(--accent2); }
-      .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1.5rem; }
+      .contact-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
       .contact-item {
         display: flex;
         gap: 1rem;
         align-items: flex-start;
+        min-width: 0;
       }
       .contact-icon {
         width: 42px; height: 42px;
@@ -404,7 +396,13 @@
         color: rgba(255,255,255,.45);
         margin-bottom: .2rem;
       }
-      .contact-value { font-size: .9rem; color: rgba(255,255,255,.85); }
+      .contact-value {
+        font-size: .9rem;
+        color: rgba(255,255,255,.85);
+        word-break: break-word;
+        overflow-wrap: break-word;
+        min-width: 0;
+      }
       .contact-value a { color: var(--accent2); text-decoration: none; }
       .contact-value a:hover { text-decoration: underline; }
 
@@ -489,7 +487,7 @@
                 </div>
                 <div class="info-row">
                   <span class="info-label">Email</span>
-                  <span class="info-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5f3e3b373e2d2c372d3e356c6a1f38323e3633713c3032">adharshraj35@gmail.com</a></span>
+                  <span class="info-value"><a href="mailto:adharshraj35@gmail.com">adharshraj35@gmail.com</a></span>
                 </div>
                 <div class="info-row">
                   <span class="info-label">Phone</span>
@@ -501,7 +499,7 @@
                 </div>
                 <div class="info-row">
                   <span class="info-label">Address</span>
-                  <span class="info-value">Mullassery House, Elthuruth, Kdoungallur P O</span>
+                  <span class="info-value">Mullassery House, Elthuruth, Kodungallur P O</span>
                 </div>
                 <div class="info-row">
                   <span class="info-label">Language</span>
@@ -522,7 +520,6 @@
           <div class="underline"></div>
         </div>
         <div class="skill-grid" data-aos="fade-up">
-          <!-- Each skill item -->
           <div class="skill-item">
             <div class="skill-name">HTML <span class="skill-pct">65%</span></div>
             <div class="skill-bar"><div class="skill-fill" data-pct="65"></div></div>
@@ -721,7 +718,7 @@
             <div class="contact-icon"><i class="fa fa-envelope"></i></div>
             <div>
               <div class="contact-label">Email</div>
-              <div class="contact-value"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="99f8fdf1f8ebeaf1ebf8f3aaacd9fef4f8f0f5b7faf6f4">adharshraj35@gmail.com</a></div>
+              <div class="contact-value"><a href="mailto:adharshraj35@gmail.com">adharshraj35@gmail.com</a></div>
             </div>
           </div>
           <div class="contact-item">
@@ -737,7 +734,6 @@
 
     <div class="footer-strip">© 2026 Adharsh Raj M R · All rights reserved</div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="js/core/jquery.3.2.1.min.js?ver=1.1.0"></script>
     <script src="js/core/popper.min.js?ver=1.1.0"></script>
     <script src="js/core/bootstrap.min.js?ver=1.1.0"></script>
@@ -747,32 +743,70 @@
 
     <script>
       // ── Age ──
-      function calculateAge() {
+      (function () {
         const birthDate = new Date(2000, 6, 23);
         const today = new Date();
         let age = today.getFullYear() - birthDate.getFullYear();
         const m = today.getMonth() - birthDate.getMonth();
         if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) age--;
-        return age;
-      }
-      const ageEl = document.getElementById('age');
-      if (ageEl) ageEl.textContent = calculateAge();
+        const el = document.getElementById('age');
+        if (el) el.textContent = age;
+      })();
 
       // ── AOS ──
-      AOS.init({ duration: 700, once: true, offset: 40 });
+      AOS.init({ duration: 800, once: true, offset: 50 });
 
-      // ── Skill bars animate on scroll ──
+      // ── Skill bars — triggered on scroll into view ──
       function animateBars() {
-        document.querySelectorAll('.skill-fill').forEach(bar => {
-          const rect = bar.getBoundingClientRect();
-          if (rect.top < window.innerHeight - 60 && !bar.classList.contains('animated')) {
-            bar.style.width = bar.dataset.pct + '%';
-            bar.classList.add('animated');
+        document.querySelectorAll('.skill-fill:not([data-animated])').forEach(function (bar) {
+          var rect = bar.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 40) {
+            bar.style.width = bar.getAttribute('data-pct') + '%';
+            bar.setAttribute('data-animated', '1');
           }
         });
       }
-      window.addEventListener('scroll', animateBars);
-      animateBars();
+      window.addEventListener('scroll', animateBars, { passive: true });
+      // Small delay so AOS fade-in completes before bars start filling
+      setTimeout(animateBars, 600);
     </script>
+
+    <!-- ── Visitor Tracker ── -->
+<script>
+  (function () {
+    var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxqAzzp_Htby-a7LgYBATW055lNt9e9DJISjwJxn5vPjusK9g3NnLGh2VhdCVNo8XwZfQ/exec';
+
+    // Fetch IP + geo info first, then log everything together
+    fetch('https://ipapi.co/json/')
+      .then(function (r) { return r.json(); })
+      .then(function (geo) { sendLog(geo); })
+      .catch(function ()  { sendLog(null); }); // still log even if IP lookup fails
+
+    function sendLog(geo) {
+      var data = {
+        timestamp : new Date().toISOString(),
+        ip        : geo ? (geo.ip        || '')  : 'unknown',
+        city      : geo ? (geo.city       || '')  : '',
+        region    : geo ? (geo.region     || '')  : '',
+        country   : geo ? (geo.country_name || '') : '',
+        isp       : geo ? (geo.org         || '')  : '',
+        timezone  : geo ? (geo.timezone    || '')  : Intl.DateTimeFormat().resolvedOptions().timeZone,
+        language  : navigator.language  || 'unknown',
+        platform  : navigator.platform  || 'unknown',
+        userAgent : navigator.userAgent || 'unknown',
+        referrer  : document.referrer   || 'direct',
+        page      : window.location.href,
+        screenW   : screen.width  || 0,
+        screenH   : screen.height || 0
+      };
+
+      fetch(SCRIPT_URL + '?data=' + encodeURIComponent(JSON.stringify(data)), {
+        method : 'GET',
+        mode   : 'no-cors'
+      }).catch(function () {});
+    }
+  })();
+</script>
+
   </body>
 </html>
