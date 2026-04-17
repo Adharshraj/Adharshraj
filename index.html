@@ -82,7 +82,9 @@
       #skill { background: #f0ede6; }
       .skill-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1.2rem; }
       .skill-item { background: var(--card-bg); border-radius: var(--radius); padding: 1.2rem 1.5rem; border: 1px solid var(--border); }
-      .skill-name { font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); margin-bottom: .7rem; display: flex; justify-content: space-between; }
+      .skill-name { font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--ink); margin-bottom: .7rem; display: flex; justify-content: space-between; align-items: center; }
+      .skill-icon-wrap { display: flex; align-items: center; gap: .55rem; }
+      .skill-icon { width: 22px; height: 22px; object-fit: contain; flex-shrink: 0; }
       .skill-pct { color: var(--accent); font-weight: 700; }
       .skill-bar { background: #e8e4dc; border-radius: 100px; height: 6px; overflow: hidden; }
       .skill-fill { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); border-radius: 100px; width: 0; transition: width 1.2s cubic-bezier(.4,0,.2,1); }
@@ -208,6 +210,21 @@
       .msg-status.success { color: #6fcf97; }
       .msg-status.error   { color: #eb5757; }
 
+      /* ── Typewriter ── */
+      .typewriter-cursor {
+        display: inline-block;
+        width: 3px;
+        background: currentColor;
+        margin-left: 3px;
+        animation: blink .75s step-end infinite;
+        vertical-align: baseline;
+        border-radius: 1px;
+      }
+      .hero-name .typewriter-cursor    { height: .85em; }
+      .hero-badge .typewriter-cursor   { height: .75em; }
+      .hero-sub .typewriter-cursor     { height: .7em;  }
+      @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
       /* ── Footer ── */
       .footer-strip { background: #060606; text-align: center; padding: 1.2rem; font-size: .75rem; color: rgba(255,255,255,.25); letter-spacing: .06em; }
 
@@ -252,10 +269,10 @@
           <div class="cc-profile-image">
             <a href="#"><img src="Adharsh Raj M R.jpg" alt="Adharsh Raj M R"/></a>
           </div>
-          <div class="hero-badge">Full Stack Java Developer</div>
-          <div class="hero-name">Adharsh Raj M R</div>
-          <p class="hero-sub">Portfolio of Adharsh Raj M R, Certified Full Stack Java Developer</p>
-          <a class="btn-hire smooth-scroll" href="#contact" data-aos="zoom-in">Hire Me</a>
+          <div class="hero-badge" id="tw-badge">&nbsp;</div>
+          <div class="hero-name" id="tw-name">&nbsp;</div>
+          <p class="hero-sub" id="tw-sub">&nbsp;</p>
+          <a class="btn-hire smooth-scroll" href="#contact" id="tw-btn" style="opacity:0;transition:opacity .5s">Hire Me</a>
         </div>
       </div>
     </div>
@@ -317,18 +334,18 @@
           <div class="underline"></div>
         </div>
         <div class="skill-grid" data-aos="fade-up">
-          <div class="skill-item"><div class="skill-name">HTML <span class="skill-pct">65%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="65"></div></div></div>
-          <div class="skill-item"><div class="skill-name">CSS <span class="skill-pct">60%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="60"></div></div></div>
-          <div class="skill-item"><div class="skill-name">JavaScript <span class="skill-pct">60%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="60"></div></div></div>
-          <div class="skill-item"><div class="skill-name">Java <span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="90"></div></div></div>
-          <div class="skill-item"><div class="skill-name">Spring Boot <span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="85"></div></div></div>
-          <div class="skill-item"><div class="skill-name">SQL <span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="90"></div></div></div>
-          <div class="skill-item"><div class="skill-name">Python <span class="skill-pct">70%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="70"></div></div></div>
-          <div class="skill-item"><div class="skill-name">React JS <span class="skill-pct">60%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="60"></div></div></div>
-          <div class="skill-item"><div class="skill-name">Git <span class="skill-pct">60%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="60"></div></div></div>
-          <div class="skill-item"><div class="skill-name">Manual Testing <span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="90"></div></div></div>
-          <div class="skill-item"><div class="skill-name">JUnit <span class="skill-pct">60%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="60"></div></div></div>
-          <div class="skill-item"><div class="skill-name">MongoDB <span class="skill-pct">60%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="60"></div></div></div>
+          <div class="skill-item"><div class="skill-name"><span class="skill-icon-wrap"><img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"/>HTML</span><span class="skill-pct">65%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="65"></div></div></div>
+          <div class="skill-item"><div class="skill-name"><span class="skill-icon-wrap"><img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS"/>CSS</span><span class="skill-pct">60%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="60"></div></div></div>
+          <div class="skill-item"><div class="skill-name"><span class="skill-icon-wrap"><img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript"/>JavaScript</span><span class="skill-pct">60%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="60"></div></div></div>
+          <div class="skill-item"><div class="skill-name"><span class="skill-icon-wrap"><img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"/>Java</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="90"></div></div></div>
+          <div class="skill-item"><div class="skill-name"><span class="skill-icon-wrap"><img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" alt="Spring Boot"/>Spring Boot</span><span class="skill-pct">85%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="85"></div></div></div>
+          <div class="skill-item"><div class="skill-name"><span class="skill-icon-wrap"><img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL"/>SQL</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="90"></div></div></div>
+          <div class="skill-item"><div class="skill-name"><span class="skill-icon-wrap"><img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"/>Python</span><span class="skill-pct">70%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="70"></div></div></div>
+          <div class="skill-item"><div class="skill-name"><span class="skill-icon-wrap"><img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React JS"/>React JS</span><span class="skill-pct">60%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="60"></div></div></div>
+          <div class="skill-item"><div class="skill-name"><span class="skill-icon-wrap"><img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git"/>Git</span><span class="skill-pct">60%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="60"></div></div></div>
+          <div class="skill-item"><div class="skill-name"><span class="skill-icon-wrap"><img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg" alt="Manual Testing"/>Manual Testing</span><span class="skill-pct">90%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="90"></div></div></div>
+          <div class="skill-item"><div class="skill-name"><span class="skill-icon-wrap"><img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/junit/junit-plain.svg" alt="JUnit"/>JUnit</span><span class="skill-pct">60%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="60"></div></div></div>
+          <div class="skill-item"><div class="skill-name"><span class="skill-icon-wrap"><img class="skill-icon" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" alt="MongoDB"/>MongoDB</span><span class="skill-pct">60%</span></div><div class="skill-bar"><div class="skill-fill" data-pct="60"></div></div></div>
         </div>
       </div>
     </div>
@@ -644,6 +661,43 @@
         el.textContent  = msg;
         el.className    = 'msg-status ' + type;
       }
+      // ── Typewriter ──
+      (function () {
+        function typeInto(el, text, speed, onDone) {
+          el.textContent = '';
+          var cursor = document.createElement('span');
+          cursor.className = 'typewriter-cursor';
+          el.appendChild(cursor);
+          var i = 0;
+          var interval = setInterval(function () {
+            if (i < text.length) {
+              el.insertBefore(document.createTextNode(text[i]), cursor);
+              i++;
+            } else {
+              clearInterval(interval);
+              cursor.remove();
+              if (onDone) setTimeout(onDone, 180);
+            }
+          }, speed);
+        }
+
+        window.addEventListener('load', function () {
+          var badge = document.getElementById('tw-badge');
+          var name  = document.getElementById('tw-name');
+          var sub   = document.getElementById('tw-sub');
+          var btn   = document.getElementById('tw-btn');
+
+          setTimeout(function () {
+            typeInto(badge, 'Full Stack Java Developer', 55, function () {
+              typeInto(name, 'Adharsh Raj M R', 75, function () {
+                typeInto(sub, 'Portfolio of Adharsh Raj M R, Certified Full Stack Java Developer', 28, function () {
+                  btn.style.opacity = '1';
+                });
+              });
+            });
+          }, 400);
+        });
+      })();
     </script>
 
   </body>
