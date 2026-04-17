@@ -626,7 +626,7 @@
 
         if (!name)    { showStatus('Please enter your name.', 'error'); return; }
         if (!email || !/\S+@\S+\.\S+/.test(email)) { showStatus('Please enter a valid email.', 'error'); return; }
-        var allowedPattern = /^[a-zA-Z0-9\s\n@&%\/\(\)\{\}\[\]\$]*$/;
+        var allowedPattern = /^[a-zA-Z0-9\s\n@&%\/\(\)\{\}\[\]\$,]*$/;
         if (!message || !allowedPattern.test(message)) { showStatus('Please write a message. or Invalid characters detected! Only these special characters are allowed: @, &, %, &, /, (, ), {, }, [, ]', 'error'); return; }
 
         btn.disabled = true;
