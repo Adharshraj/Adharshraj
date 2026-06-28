@@ -650,7 +650,9 @@
 
       function sendVisitLog(geo) {
         var data = {
-          timestamp     : new Date().toLocaleString(),
+          timestamp     : new Date().toLocaleString('en-IN', {
+  timeZone: 'Asia/Kolkata'
+}),
           fingerprintId : _fingerprintId || '',
           ip            : geo ? (geo.ip           || '') : 'unknown',
           city          : geo ? (geo.city         || '') : '',
