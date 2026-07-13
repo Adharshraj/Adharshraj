@@ -449,7 +449,19 @@
         </div>
       </div>
     </div>
-
+    <!-- ── Resume Download Name Modal ── -->
+    <div class="resume-modal-overlay" id="resume-modal-overlay" onclick="if(event.target===this) closeResumeModal()">
+      <div class="resume-modal-box">
+        <h5>Before you download</h5>
+        <p>Just your name — that's all!</p>
+        <input type="text" id="resume-modal-name" placeholder="Your name" maxlength="80" onkeydown="if(event.key==='Enter') submitResumeModal()">
+        <div class="resume-modal-error" id="resume-modal-error">Please enter your name.</div>
+        <div class="resume-modal-actions">
+          <button class="resume-modal-cancel" onclick="closeResumeModal()">Cancel</button>
+          <button class="resume-modal-submit" onclick="submitResumeModal()">Download</button>
+        </div>
+      </div>
+    </div>
     <!-- ── Contact ── -->
     <div class="section" id="contact">
       <div class="container">
@@ -529,6 +541,57 @@
     <script>
       var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby0LBsha2nHvfhy2tnq3p3rHc0CIZkg3ArCpQY0qRvFHo23ObMfONXXVUdIT_oLKZ9h3Q/exec';
 
+      // ── Resume Download Name Popup ──
+      // Set to false to turn this feature off completely — download will go back to working directly with no popup.
+      var RESUME_NAME_POPUP_ENABLED = true;
+
+      function handleResumeDownloadClick(e) {
+        if (!RESUME_NAME_POPUP_ENABLED) return true; // feature off: let the link download normally
+        e.preventDefault();
+        var input = document.getElementById('resume-modal-name');
+        input.value = '';
+        document.getElementById('resume-modal-error').classList.remove('show');
+        document.getElementById('resume-modal-overlay').classList.add('open');
+        setTimeout(function () { input.focus(); }, 50);
+        return false;
+      }
+
+      function closeResumeModal() {
+        document.getElementById('resume-modal-overlay').classList.remove('open');
+      }
+
+      function submitResumeModal() {
+        var input = document.getElementById('resume-modal-name');
+        var name  = input.value.trim();
+        var errEl = document.getElementById('resume-modal-error');
+        if (!name) { errEl.classList.add('show'); return; }
+        errEl.classList.remove('show');
+
+        logResumeDownload(name);
+        closeResumeModal();
+        triggerResumeDownload();
+      }
+
+      function logResumeDownload(name) {
+        var data = {
+          timestamp: new Date().toISOString(),
+          name: name,
+          page: window.location.href
+        };
+        fetch(SCRIPT_URL + '?type=resume&data=' + encodeURIComponent(JSON.stringify(data)), {
+          method: 'GET', mode: 'no-cors'
+        }).catch(function () {});
+      }
+
+      function triggerResumeDownload() {
+        var link = document.getElementById('resume-download-link');
+        var a = document.createElement('a');
+        a.href = link.getAttribute('href');
+        a.setAttribute('download', link.getAttribute('download'));
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+      }
       // ── Age ──
       (function () {
         var birthDate = new Date(2000, 5, 23);
