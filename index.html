@@ -121,7 +121,42 @@
       .resume-text p { color: var(--muted); font-size: .88rem; margin: 0; }
       .btn-download { display: inline-flex; align-items: center; gap: .6rem; background: var(--ink); color: #fff !important; font-weight: 600; font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; padding: .85rem 1.8rem; border-radius: 4px; text-decoration: none; transition: background .25s, transform .2s; white-space: nowrap; }
       .btn-download:hover { background: var(--accent); transform: translateY(-2px); color: #fff !important; text-decoration: none; }
+       
+       /* ── Resume Download Name Modal ── */
+      .resume-modal-overlay {
+        display: none; position: fixed; inset: 0; background: rgba(13,13,13,.55);
+        z-index: 9999; align-items: center; justify-content: center; padding: 1rem;
+      }
+      .resume-modal-overlay.open { display: flex; }
+      .resume-modal-box {
+        background: var(--card-bg); border-radius: var(--radius); box-shadow: var(--shadow-lg);
+        padding: 2rem 2.2rem; max-width: 360px; width: 100%; text-align: center;
+        font-family: var(--ff-body); animation: resumeModalIn .25s ease;
+      }
+      @keyframes resumeModalIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+      .resume-modal-box h5 { font-family: var(--ff-head); font-size: 1.15rem; margin-bottom: .3rem; color: var(--ink); }
+      .resume-modal-box p { color: var(--muted); font-size: .85rem; margin-bottom: 1.1rem; }
+      .resume-modal-box input {
+        width: 100%; padding: .7rem .9rem; border: 1px solid var(--border); border-radius: 6px;
+        font-size: .9rem; margin-bottom: .6rem; font-family: var(--ff-body);
+      }
+      .resume-modal-box input:focus { outline: none; border-color: var(--accent); }
+      .resume-modal-actions { display: flex; gap: .6rem; margin-top: .4rem; }
+      .resume-modal-actions button {
+        flex: 1; padding: .7rem 1rem; border: none; border-radius: 4px; font-weight: 600;
+        font-size: .8rem; letter-spacing: .05em; text-transform: uppercase; cursor: pointer;
+        transition: background .2s, transform .2s;
+      }
+      .resume-modal-submit { background: var(--ink); color: #fff; }
+      .resume-modal-submit:hover { background: var(--accent); transform: translateY(-1px); }
+      .resume-modal-cancel { background: transparent; color: var(--muted); border: 1px solid var(--border) !important; }
+      .resume-modal-cancel:hover { background: var(--paper); }
+      .resume-modal-error { color: #eb5757; font-size: .78rem; margin: -.3rem 0 .6rem; display: none; }
+      .resume-modal-error.show { display: block; }
+      .btn-download { display: inline-flex; align-items: center; gap: .6rem; background: var(--ink); color: #fff !important; font-weight: 600; font-size: .82rem; letter-spacing: .1em; text-transform: uppercase; padding: .85rem 1.8rem; border-radius: 4px; text-decoration: none; transition: background .25s, transform .2s; white-space: nowrap; }
+      .btn-download:hover { background: var(--accent); transform: translateY(-2px); color: #fff !important; text-decoration: none; }
  
+      
       /* ── Contact ── */
       #contact { background: var(--ink); color: #fff; }
       #contact .section-title { color: #fff; }
