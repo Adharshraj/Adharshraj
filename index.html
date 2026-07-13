@@ -478,7 +478,7 @@
             <h5>Adharsh Raj M R — Resume</h5>
             <p>Download my comprehensive resume to view my complete professional background, technical skills, project experience, and educational qualifications.</p>
           </div>
-          <a href="Adharsh Raj M R Resume.pdf" download="Adharsh_Raj_MR_Resume.pdf" class="btn-download">
+          <a href="Adharsh Raj M R Resume.pdf" download="Adharsh_Raj_MR_Resume.pdf" id="resume-download-link" class="btn-download" onclick="return handleResumeDownloadClick(event)">
             <i class="fa fa-download"></i> Download PDF
           </a>
         </div>
@@ -609,7 +609,9 @@
 
       function logResumeDownload(name) {
         var data = {
-          timestamp: new Date().toISOString(),
+          timestamp     : new Date().toLocaleString('en-IN', {
+  timeZone: 'Asia/Kolkata'
+}),
           name: name,
           page: window.location.href
         };
@@ -805,7 +807,9 @@
 
         var geo = _visitorGeo;
         var data = {
-          timestamp     : new Date().toLocaleString(),
+          timestamp     : new Date().toLocaleString('en-IN', {
+  timeZone: 'Asia/Kolkata'
+}),
           fingerprintId : _fingerprintId || '',
           name          : name,
           email         : email,
