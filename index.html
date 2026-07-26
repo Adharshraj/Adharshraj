@@ -892,16 +892,11 @@
           var name  = document.getElementById('tw-name');
           var sub   = document.getElementById('tw-sub');
           var btn   = document.getElementById('tw-btn');
-
-          setTimeout(function () {
-            typeInto(badge, 'Java Backend Developer', 55, function () {
-              typeInto(name, 'Adharsh Raj M R', 75, function () {
-                typeInto(sub, 'Portfolio of Adharsh Raj M R, Certified Java Backend Developer', 28, function () {
-                  btn.style.opacity = '1';
-                });
-              });
-            });
-          }, 400);
+        
+          if (badge) { badge.textContent = 'Java Backend Developer'; badge.style.opacity = '1'; }
+          if (name)  { name.textContent  = 'Adharsh Raj M R'; name.style.opacity = '1'; }
+          if (sub)   { sub.textContent   = 'Portfolio of Adharsh Raj M R, Certified Java Backend Developer'; sub.style.opacity = '1'; }
+          if (btn)   { btn.style.opacity = '1'; }
         });
       })();
     </script>
